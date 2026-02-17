@@ -261,7 +261,7 @@ body { font-family: 'Cairo', sans-serif; background: var(--light); color: var(--
   <div class="modal-content">
     <button class="modal-close" onclick="window.closeJoinModal()">&times;</button>
     <h2>انضم كمصور محترف</h2>
-    <form id="joinForm" onsubmit="window.submitJoinForm(event)">
+    <form id="joinForm">
       <div class="form-group"><label>الاسم الكامل *</label><input type="text" id="joinName" required placeholder="أدخل اسمك الكامل"></div>
       <div class="form-group"><label>رقم الهاتف *</label><input type="tel" id="joinPhone" required placeholder="0555 123 456"></div>
       <div class="form-group"><label>البريد الإلكتروني *</label><input type="email" id="joinEmail" required placeholder="email@example.com"></div>
@@ -297,7 +297,7 @@ body { font-family: 'Cairo', sans-serif; background: var(--light); color: var(--
     <button class="modal-close" onclick="window.closeBookModal()">&times;</button>
     <h2>احجز الآن</h2>
     <p style="color:#666; margin-bottom:20px;">المصور: <strong id="selectedPhotographerName"></strong></p>
-    <form id="bookForm" onsubmit="window.submitBooking(event)">
+    <form id="bookForm">
       <div class="form-group"><label>الاسم الكامل *</label><input type="text" id="bookName" required placeholder="أدخل اسمك"></div>
       <div class="form-group"><label>رقم الهاتف *</label><input type="tel" id="bookPhone" required placeholder="0555 123 456"></div>
       <div class="form-group"><label>البريد الإلكتروني</label><input type="email" id="bookEmail" placeholder="email@example.com"></div>
@@ -346,8 +346,23 @@ const samplePhotographers = [
   { name: "سمية حداد", category: "رياضة", rating: 4.8, reviews: 76, location: "عنابة", price: 38000 }
 ];
 
-let allPhotographers = [...samplePhotographers];
-let selectedPhotographer = '';
+let selectedPhotographerName = '';
+
+function showToast(message) {
+  const toast = document.getElementById('toast');
+  toast.innerText = message;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 4000);
+}
+
+function updateStats() {
+  get(ref(database, 'photographer_applications')).then(snap => {
+    document.getElementById('photographersCount').innerText = snap.size || 0;
+  });
+  get(ref(database, 'bookings')).then(snap => {
+    document.getElementById('bookingsCount').innerText = snap.size || 0;
+  });
+}
 
 function displayPhotographers(photographers) {
   const grid = document.getElementById('photographersGrid');
@@ -378,40 +393,33 @@ function displayPhotographers(photographers) {
   });
 }
 
-function showToast(message) {
-  const toast = document.getElementById('toast');
-  toast.innerText = message;
-  toast.classList.add('show');
-  setTimeout(() => toast.classList.remove('show'), 4000);
-}
+// تعريف الدوال العالمية لجعلها قابلة للوصول من الأزرار
+window.openJoinModal = () => document.getElementById('joinModal').classList.add('active');
+window.closeJoinModal = () => document.getElementById('joinModal').classList.remove('active');
 
-function updateStats() {
-  get(ref(database, 'photographer_applications')).then(snap => {
-    document.getElementById('photographersCount').innerText = snap.size || 0;
-  }).catch(()=>{});
-  get(ref(database, 'bookings')).then(snap => {
-    document.getElementById('bookingsCount').innerText = snap.size || 0;
-  }).catch(()=>{});
-}
+window.openBookModal = (name) => {
+  selectedPhotographerName = name;
+  document.getElementById('selectedPhotographerName').innerText = name;
+  document.getElementById('bookModal').classList.add('active');
+};
+window.closeBookModal = () => document.getElementById('bookModal').classList.remove('active');
 
 window.searchPhotographers = function() {
-  const query = document.getElementById('searchInput').value.toLowerCase();
-  displayPhotographers(allPhotographers.filter(p =>
-    p.name.toLowerCase().includes(query) || p.category.includes(query) || p.location.includes(query)
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  displayPhotographers(samplePhotographers.filter(p => 
+    p.name.includes(q) || p.category.includes(q) || p.location.includes(q)
   ));
 };
 
 window.filterByCategory = function(cat) {
-  displayPhotographers(allPhotographers.filter(p => p.category === cat));
+  displayPhotographers(samplePhotographers.filter(p => p.category === cat));
   document.getElementById('photographers').scrollIntoView({ behavior: 'smooth' });
 };
 
-window.openJoinModal = () => document.getElementById('joinModal').classList.add('active');
-window.closeJoinModal = () => document.getElementById('joinModal').classList.remove('active');
-
-window.submitJoinForm = function(event) {
-  event.preventDefault();
-  const formData = {
+// معالجة إرسال طلب الانضمام
+document.getElementById('joinForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const data = {
     name: document.getElementById('joinName').value,
     phone: document.getElementById('joinPhone').value,
     email: document.getElementById('joinEmail').value,
@@ -420,47 +428,48 @@ window.submitJoinForm = function(event) {
     experience: document.getElementById('joinExperience').value,
     timestamp: Date.now()
   };
-  push(ref(database, 'photographer_applications'), formData).then(() => {
-    showToast('✅ تم إرسال طلبك بنجاح!');
+  push(ref(database, 'photographer_applications'), data).then(() => {
+    showToast('✅ تم إرسال طلب الانضمام بنجاح!');
     window.closeJoinModal();
-    document.getElementById('joinForm').reset();
+    e.target.reset();
     updateStats();
-  });
-};
-
-window.openBookModal = function(name) {
-  selectedPhotographer = name;
-  document.getElementById('selectedPhotographerName').innerText = name;
-  document.getElementById('bookModal').classList.add('active');
-};
-
-window.closeBookModal = () => document.getElementById('bookModal').classList.remove('active');
-
-window.submitBooking = function(event) {
-  event.preventDefault();
-  const formData = {
-    photographerName: selectedPhotographer,
-    clientName: document.getElementById('bookName').value,
-    phone: document.getElementById('bookPhone').value,
-    date: document.getElementById('bookDate').value,
-    timestamp: Date.now()
-  };
-  push(ref(database, 'bookings'), formData).then(() => {
-    showToast('✅ تم إرسال طلب الحجز!');
-    window.closeBookModal();
-    document.getElementById('bookForm').reset();
-    updateStats();
-  });
-};
-
-// إغلاق المودال عند الضغط خارج المحتوى
-document.querySelectorAll('.modal').forEach(modal => {
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) modal.classList.remove('active');
   });
 });
 
-displayPhotographers(allPhotographers);
+// معالجة إرسال طلب الحجز (هذا الجزء الذي تم إصلاحه)
+document.getElementById('bookForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const data = {
+    photographer: selectedPhotographerName,
+    clientName: document.getElementById('bookName').value,
+    phone: document.getElementById('bookPhone').value,
+    email: document.getElementById('bookEmail').value,
+    eventType: document.getElementById('bookEventType').value,
+    date: document.getElementById('bookDate').value,
+    location: document.getElementById('bookLocation').value,
+    notes: document.getElementById('bookNotes').value,
+    timestamp: Date.now()
+  };
+  push(ref(database, 'bookings'), data).then(() => {
+    showToast('✅ تم إرسال طلب الحجز بنجاح! سنتصل بك.');
+    window.closeBookModal();
+    e.target.reset();
+    updateStats();
+  }).catch(err => {
+    console.error(err);
+    alert('حدث خطأ في الإرسال، حاول ثانية');
+  });
+});
+
+// إغلاق المودال عند الضغط خارجه
+window.onclick = (e) => {
+  if (e.target.classList.contains('modal')) {
+    e.target.classList.remove('active');
+  }
+};
+
+// التشغيل الأولي
+displayPhotographers(samplePhotographers);
 updateStats();
 </script>
 </body>
