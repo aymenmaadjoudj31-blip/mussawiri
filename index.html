@@ -1,1071 +1,232 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ3VB5PSTR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XZ3VB5PSTR');
+</script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>📸 مصوري - منصة المصورين الجزائريين</title>
-<meta name="description" content="ابحث عن أفضل المصورين في الجزائر. احجز مصور محترف لأفراحك ومناسباتك بكل سهولة. منصة موثوقة ومضمونة.">
-<meta name="keywords" content="مصور, تصوير, أفراح, مناسبات, الجزائر, تصوير فوتوغرافي, photographer">
-
+<meta name="description" content="ابحث عن أفضل المصورين في الجزائر. احجز مصور محترف لأفراحك ومناسباتك بكل سهولة.">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-:root {
-  --primary: #e91e63;
-  --secondary: #673ab7;
-  --accent: #00bcd4;
-  --dark: #1a1a2e;
-  --light: #f8f9fa;
-  --success: #4caf50;
-  --warning: #ff9800;
-}
-
-body {
-  font-family: 'Cairo', sans-serif;
-  background: var(--light);
-  color: var(--dark);
-  line-height: 1.6;
-}
-
-/* الهيدر */
-.header {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: white;
-  padding: 1rem 0;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.nav-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  font-size: 28px;
-  font-weight: 900;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.nav-links {
-  display: flex;
-  gap: 30px;
-  align-items: center;
-}
-
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s;
-  padding: 8px 16px;
-  border-radius: 8px;
-}
-
-.nav-links a:hover {
-  background: rgba(255,255,255,0.2);
-}
-
-.btn-join {
-  background: white;
-  color: var(--primary);
-  padding: 12px 30px;
-  border-radius: 30px;
-  font-weight: 700;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.btn-join:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-}
-
-/* البانر الرئيسي */
-.hero {
-  background: linear-gradient(135deg, rgba(233,30,99,0.9), rgba(103,58,183,0.9)),
-              url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%231a1a2e" width="1200" height="600"/></svg>');
-  background-size: cover;
-  background-position: center;
-  color: white;
-  padding: 100px 20px;
-  text-align: center;
-}
-
-.hero h1 {
-  font-size: 48px;
-  font-weight: 900;
-  margin-bottom: 20px;
-  animation: fadeInDown 1s;
-}
-
-.hero p {
-  font-size: 20px;
-  margin-bottom: 40px;
-  opacity: 0.95;
-  animation: fadeInUp 1s;
-}
-
-.search-box {
-  max-width: 600px;
-  margin: 0 auto;
-  display: flex;
-  gap: 10px;
-  background: white;
-  padding: 10px;
-  border-radius: 50px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  animation: fadeInUp 1.2s;
-}
-
-.search-box input {
-  flex: 1;
-  padding: 15px 25px;
-  border: none;
-  border-radius: 50px;
-  font-size: 16px;
-  font-family: 'Cairo', sans-serif;
-  color: var(--dark);
-}
-
-.search-box input:focus {
-  outline: none;
-}
-
-.search-box button {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: white;
-  border: none;
-  padding: 15px 40px;
-  border-radius: 50px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.3s;
-  font-family: 'Cairo', sans-serif;
-}
-
-.search-box button:hover {
-  transform: scale(1.05);
-}
-
-/* الإحصائيات */
-.stats {
-  max-width: 1200px;
-  margin: -50px auto 50px;
-  padding: 0 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  position: relative;
-  z-index: 10;
-}
-
-.stat-card {
-  background: white;
-  padding: 30px;
-  border-radius: 20px;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  transition: all 0.3s;
-}
-
-.stat-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-}
-
-.stat-card i {
-  font-size: 48px;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 15px;
-}
-
-.stat-card h3 {
-  font-size: 36px;
-  font-weight: 900;
-  color: var(--primary);
-  margin-bottom: 10px;
-}
-
-.stat-card p {
-  color: #666;
-  font-weight: 600;
-}
-
-/* الأقسام */
-.section {
-  max-width: 1200px;
-  margin: 80px auto;
-  padding: 0 20px;
-}
-
-.section-header {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.section-header h2 {
-  font-size: 36px;
-  font-weight: 900;
-  color: var(--dark);
-  margin-bottom: 15px;
-}
-
-.section-header p {
-  font-size: 18px;
-  color: #666;
-}
-
-/* الفئات */
-.categories {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-}
-
-.category-card {
-  background: white;
-  padding: 30px;
-  border-radius: 20px;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.3s;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-}
-
-.category-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: white;
-}
-
-.category-card i {
-  font-size: 48px;
-  margin-bottom: 15px;
-  color: var(--primary);
-  transition: all 0.3s;
-}
-
-.category-card:hover i {
-  color: white;
-  transform: scale(1.2);
-}
-
-.category-card h3 {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-.category-card p {
-  font-size: 14px;
-  opacity: 0.8;
-}
-
-/* بطاقات المصورين */
-.photographers-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 30px;
-}
-
-.photographer-card {
-  background: white;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-  transition: all 0.3s;
-  cursor: pointer;
-}
-
-.photographer-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-}
-
-.photographer-image {
-  width: 100%;
-  height: 250px;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 80px;
-  color: white;
-  position: relative;
-  overflow: hidden;
-}
-
-.photographer-badge {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background: var(--success);
-  color: white;
-  padding: 8px 15px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.photographer-info {
-  padding: 25px;
-}
-
-.photographer-name {
-  font-size: 22px;
-  font-weight: 900;
-  color: var(--dark);
-  margin-bottom: 10px;
-}
-
-.photographer-category {
-  color: var(--primary);
-  font-weight: 600;
-  font-size: 14px;
-  margin-bottom: 15px;
-}
-
-.photographer-rating {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 15px;
-}
-
-.stars {
-  color: #ffc107;
-  font-size: 18px;
-}
-
-.rating-count {
-  color: #666;
-  font-size: 14px;
-}
-
-.photographer-location {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: #666;
-  margin-bottom: 15px;
-  font-size: 14px;
-}
-
-.photographer-price {
-  font-size: 24px;
-  font-weight: 900;
-  color: var(--primary);
-  margin-bottom: 20px;
-}
-
-.photographer-price span {
-  font-size: 14px;
-  font-weight: 600;
-  color: #666;
-}
-
-.btn-book {
-  width: 100%;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: white;
-  border: none;
-  padding: 15px;
-  border-radius: 10px;
-  font-weight: 700;
-  font-size: 16px;
-  cursor: pointer;
-  transition: all 0.3s;
-  font-family: 'Cairo', sans-serif;
-}
-
-.btn-book:hover {
-  transform: scale(1.05);
-  box-shadow: 0 5px 15px rgba(233,30,99,0.4);
-}
-
-/* كيف تعمل */
-.how-it-works {
-  background: linear-gradient(135deg, rgba(233,30,99,0.05), rgba(103,58,183,0.05));
-  padding: 80px 20px;
-  margin: 80px 0;
-}
-
-.steps {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 40px;
-}
-
-.step {
-  text-align: center;
-  position: relative;
-}
-
-.step-number {
-  width: 80px;
-  height: 80px;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 36px;
-  font-weight: 900;
-  margin: 0 auto 20px;
-  box-shadow: 0 5px 15px rgba(233,30,99,0.3);
-}
-
-.step h3 {
-  font-size: 22px;
-  font-weight: 900;
-  margin-bottom: 15px;
-  color: var(--dark);
-}
-
-.step p {
-  color: #666;
-  line-height: 1.8;
-}
-
-/* انضم كمصور */
-.join-photographer {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: white;
-  padding: 80px 20px;
-  text-align: center;
-  margin: 80px 0;
-}
-
-.join-photographer h2 {
-  font-size: 42px;
-  font-weight: 900;
-  margin-bottom: 20px;
-}
-
-.join-photographer p {
-  font-size: 20px;
-  margin-bottom: 40px;
-  opacity: 0.95;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.join-benefits {
-  max-width: 1000px;
-  margin: 50px auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 30px;
-}
-
-.benefit {
-  text-align: center;
-}
-
-.benefit i {
-  font-size: 48px;
-  margin-bottom: 15px;
-  opacity: 0.9;
-}
-
-.benefit h4 {
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-.benefit p {
-  font-size: 14px;
-  opacity: 0.8;
-}
-
-.btn-join-large {
-  background: white;
-  color: var(--primary);
-  padding: 20px 60px;
-  border-radius: 50px;
-  font-weight: 900;
-  font-size: 20px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s;
-  font-family: 'Cairo', sans-serif;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-}
-
-.btn-join-large:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-}
-
-/* الشهادات */
-.testimonials {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-}
-
-.testimonial {
-  background: white;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-}
-
-.testimonial-header {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 20px;
-}
-
-.testimonial-avatar {
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 24px;
-  font-weight: 900;
-}
-
-.testimonial-name {
-  font-weight: 900;
-  font-size: 18px;
-  color: var(--dark);
-}
-
-.testimonial-role {
-  color: #666;
-  font-size: 14px;
-}
-
-.testimonial-rating {
-  color: #ffc107;
-  margin-bottom: 15px;
-}
-
-.testimonial-text {
-  color: #666;
-  line-height: 1.8;
-  font-style: italic;
-}
-
-/* الفوتر */
-.footer {
-  background: var(--dark);
-  color: white;
-  padding: 60px 20px 20px;
-  margin-top: 80px;
-}
-
-.footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 40px;
-  margin-bottom: 40px;
-}
-
-.footer-section h3 {
-  font-size: 20px;
-  font-weight: 900;
-  margin-bottom: 20px;
-}
-
-.footer-section ul {
-  list-style: none;
-}
-
-.footer-section ul li {
-  margin-bottom: 10px;
-}
-
-.footer-section ul li a {
-  color: rgba(255,255,255,0.7);
-  text-decoration: none;
-  transition: all 0.3s;
-}
-
-.footer-section ul li a:hover {
-  color: white;
-  padding-right: 5px;
-}
-
-.social-links {
-  display: flex;
-  gap: 15px;
-  margin-top: 20px;
-}
-
-.social-links a {
-  width: 40px;
-  height: 40px;
-  background: rgba(255,255,255,0.1);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  transition: all 0.3s;
-  text-decoration: none;
-}
-
-.social-links a:hover {
-  background: var(--primary);
-  transform: translateY(-3px);
-}
-
-.footer-bottom {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-top: 30px;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  text-align: center;
-  color: rgba(255,255,255,0.7);
-}
-
-/* أنيميشنات */
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Modal */
-.modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.8);
-  z-index: 2000;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-
-.modal.active {
-  display: flex;
-}
-
-.modal-content {
-  background: white;
-  padding: 40px;
-  border-radius: 20px;
-  max-width: 500px;
-  width: 100%;
-  max-height: 90vh;
-  overflow-y: auto;
-  position: relative;
-  animation: fadeInUp 0.5s;
-}
-
-.modal-close {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  font-size: 30px;
-  cursor: pointer;
-  color: #666;
-  transition: all 0.3s;
-}
-
-.modal-close:hover {
-  color: var(--primary);
-  transform: rotate(90deg);
-}
-
-.modal h2 {
-  font-size: 28px;
-  font-weight: 900;
-  margin-bottom: 20px;
-  color: var(--dark);
-}
-
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 600;
-  color: var(--dark);
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%;
-  padding: 12px 15px;
-  border: 2px solid #e0e0e0;
-  border-radius: 10px;
-  font-family: 'Cairo', sans-serif;
-  font-size: 16px;
-  transition: all 0.3s;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--primary);
-}
-
-.btn-submit {
-  width: 100%;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: white;
-  border: none;
-  padding: 15px;
-  border-radius: 10px;
-  font-weight: 700;
-  font-size: 18px;
-  cursor: pointer;
-  transition: all 0.3s;
-  font-family: 'Cairo', sans-serif;
-}
-
-.btn-submit:hover {
-  transform: scale(1.02);
-  box-shadow: 0 5px 15px rgba(233,30,99,0.4);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 32px;
-  }
-  
-  .hero p {
-    font-size: 16px;
-  }
-  
-  .search-box {
-    flex-direction: column;
-  }
-  
-  .nav-links {
-    display: none;
-  }
-  
-  .section-header h2 {
-    font-size: 28px;
-  }
-  
-  .join-photographer h2 {
-    font-size: 32px;
-  }
-}
-
-.hidden {
-  display: none !important;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root { --primary: #e91e63; --secondary: #673ab7; --dark: #1a1a2e; --light: #f8f9fa; --success: #4caf50; }
+body { font-family: 'Cairo', sans-serif; background: var(--light); color: var(--dark); line-height: 1.6; }
+.header { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 1rem 0; box-shadow: 0 4px 20px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+.nav-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 28px; font-weight: 900; display: flex; align-items: center; gap: 10px; }
+.nav-links { display: flex; gap: 30px; align-items: center; }
+.nav-links a { color: white; text-decoration: none; font-weight: 600; transition: all 0.3s; padding: 8px 16px; border-radius: 8px; }
+.nav-links a:hover { background: rgba(255,255,255,0.2); }
+.btn-join { background: white; color: var(--primary); padding: 12px 30px; border-radius: 30px; font-weight: 700; border: none; cursor: pointer; transition: all 0.3s; font-family: 'Cairo', sans-serif; }
+.btn-join:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+.hero { background: linear-gradient(135deg, rgba(233,30,99,0.9), rgba(103,58,183,0.9)); color: white; padding: 100px 20px; text-align: center; }
+.hero h1 { font-size: 48px; font-weight: 900; margin-bottom: 20px; animation: fadeInDown 1s; }
+.hero p { font-size: 20px; margin-bottom: 40px; opacity: 0.95; animation: fadeInUp 1s; }
+.search-box { max-width: 600px; margin: 0 auto; display: flex; gap: 10px; background: white; padding: 10px; border-radius: 50px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+.search-box input { flex: 1; padding: 15px 25px; border: none; border-radius: 50px; font-size: 16px; font-family: 'Cairo', sans-serif; color: var(--dark); }
+.search-box input:focus { outline: none; }
+.search-box button { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; border: none; padding: 15px 40px; border-radius: 50px; font-weight: 700; cursor: pointer; transition: all 0.3s; font-family: 'Cairo', sans-serif; }
+.search-box button:hover { transform: scale(1.05); }
+.stats { max-width: 1200px; margin: -50px auto 50px; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; position: relative; z-index: 10; }
+.stat-card { background: white; padding: 30px; border-radius: 20px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: all 0.3s; }
+.stat-card:hover { transform: translateY(-10px); }
+.stat-card i { font-size: 48px; background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 15px; }
+.stat-card h3 { font-size: 36px; font-weight: 900; color: var(--primary); margin-bottom: 10px; }
+.stat-card p { color: #666; font-weight: 600; }
+.section { max-width: 1200px; margin: 80px auto; padding: 0 20px; }
+.section-header { text-align: center; margin-bottom: 50px; }
+.section-header h2 { font-size: 36px; font-weight: 900; color: var(--dark); margin-bottom: 15px; }
+.section-header p { font-size: 18px; color: #666; }
+.categories { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+.category-card { background: white; padding: 30px; border-radius: 20px; text-align: center; cursor: pointer; transition: all 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.08); }
+.category-card:hover { transform: translateY(-5px); background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; }
+.category-card i { font-size: 48px; margin-bottom: 15px; color: var(--primary); transition: all 0.3s; }
+.category-card:hover i { color: white; transform: scale(1.2); }
+.category-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+.category-card p { font-size: 14px; opacity: 0.8; }
+.photographers-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
+.photographer-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: all 0.3s; }
+.photographer-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.15); }
+.photographer-image { width: 100%; height: 250px; background: linear-gradient(135deg, var(--primary), var(--secondary)); display: flex; align-items: center; justify-content: center; font-size: 80px; color: white; position: relative; }
+.photographer-badge { position: absolute; top: 15px; right: 15px; background: var(--success); color: white; padding: 8px 15px; border-radius: 20px; font-size: 12px; font-weight: 700; }
+.photographer-info { padding: 25px; }
+.photographer-name { font-size: 22px; font-weight: 900; color: var(--dark); margin-bottom: 10px; }
+.photographer-category { color: var(--primary); font-weight: 600; font-size: 14px; margin-bottom: 15px; }
+.photographer-rating { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; }
+.stars { color: #ffc107; font-size: 18px; }
+.rating-count { color: #666; font-size: 14px; }
+.photographer-location { display: flex; align-items: center; gap: 8px; color: #666; margin-bottom: 15px; font-size: 14px; }
+.photographer-price { font-size: 24px; font-weight: 900; color: var(--primary); margin-bottom: 20px; }
+.photographer-price span { font-size: 14px; font-weight: 600; color: #666; }
+.btn-book { width: 100%; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; border: none; padding: 15px; border-radius: 10px; font-weight: 700; font-size: 16px; cursor: pointer; transition: all 0.3s; font-family: 'Cairo', sans-serif; }
+.btn-book:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(233,30,99,0.4); }
+.how-it-works { background: linear-gradient(135deg, rgba(233,30,99,0.05), rgba(103,58,183,0.05)); padding: 80px 20px; margin: 80px 0; }
+.steps { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+.step { text-align: center; }
+.step-number { width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 36px; font-weight: 900; margin: 0 auto 20px; box-shadow: 0 5px 15px rgba(233,30,99,0.3); }
+.step h3 { font-size: 22px; font-weight: 900; margin-bottom: 15px; color: var(--dark); }
+.step p { color: #666; line-height: 1.8; }
+.join-photographer { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 80px 20px; text-align: center; margin: 80px 0; }
+.join-photographer h2 { font-size: 42px; font-weight: 900; margin-bottom: 20px; }
+.join-photographer > p { font-size: 20px; margin-bottom: 40px; opacity: 0.95; max-width: 800px; margin-left: auto; margin-right: auto; }
+.join-benefits { max-width: 1000px; margin: 50px auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
+.benefit { text-align: center; }
+.benefit i { font-size: 48px; margin-bottom: 15px; opacity: 0.9; }
+.benefit h4 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+.benefit p { font-size: 14px; opacity: 0.8; }
+.btn-join-large { background: white; color: var(--primary); padding: 20px 60px; border-radius: 50px; font-weight: 900; font-size: 20px; border: none; cursor: pointer; transition: all 0.3s; font-family: 'Cairo', sans-serif; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+.btn-join-large:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.3); }
+.testimonials { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.testimonial { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); }
+.testimonial-header { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+.testimonial-avatar { width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; font-weight: 900; }
+.testimonial-name { font-weight: 900; font-size: 18px; color: var(--dark); }
+.testimonial-role { color: #666; font-size: 14px; }
+.testimonial-rating { color: #ffc107; margin-bottom: 15px; }
+.testimonial-text { color: #666; line-height: 1.8; font-style: italic; }
+.footer { background: var(--dark); color: white; padding: 60px 20px 20px; margin-top: 80px; }
+.footer-content { max-width: 1200px; margin: 0 auto 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+.footer-section h3 { font-size: 20px; font-weight: 900; margin-bottom: 20px; }
+.footer-section ul { list-style: none; }
+.footer-section ul li { margin-bottom: 10px; }
+.footer-section ul li a { color: rgba(255,255,255,0.7); text-decoration: none; transition: all 0.3s; }
+.footer-section ul li a:hover { color: white; }
+.social-links { display: flex; gap: 15px; margin-top: 20px; }
+.social-links a { width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; transition: all 0.3s; text-decoration: none; }
+.social-links a:hover { background: var(--primary); transform: translateY(-3px); }
+.footer-bottom { max-width: 1200px; margin: 0 auto; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; color: rgba(255,255,255,0.7); }
+@keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000; align-items: center; justify-content: center; padding: 20px; }
+.modal.active { display: flex; }
+.modal-content { background: white; padding: 40px; border-radius: 20px; max-width: 500px; width: 100%; max-height: 90vh; overflow-y: auto; position: relative; animation: fadeInUp 0.5s; }
+.modal-close { position: absolute; top: 20px; left: 20px; font-size: 30px; cursor: pointer; color: #666; transition: all 0.3s; background: none; border: none; }
+.modal-close:hover { color: var(--primary); transform: rotate(90deg); }
+.modal h2 { font-size: 28px; font-weight: 900; margin-bottom: 20px; color: var(--dark); }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--dark); }
+.form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-family: 'Cairo', sans-serif; font-size: 16px; transition: all 0.3s; }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--primary); }
+.btn-submit { width: 100%; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; border: none; padding: 15px; border-radius: 10px; font-weight: 700; font-size: 18px; cursor: pointer; transition: all 0.3s; font-family: 'Cairo', sans-serif; }
+.btn-submit:hover { transform: scale(1.02); box-shadow: 0 5px 15px rgba(233,30,99,0.4); }
+.toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--success); color: white; padding: 20px 40px; border-radius: 15px; font-size: 18px; font-weight: 700; z-index: 9999; transition: all 0.5s; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+.toast.show { transform: translateX(-50%) translateY(0); }
+@media (max-width: 768px) { .hero h1 { font-size: 32px; } .hero p { font-size: 16px; } .search-box { flex-direction: column; } .nav-links { display: none; } }
 </style>
 </head>
 <body>
 
-<!-- الهيدر -->
 <header class="header">
   <div class="nav-container">
-    <div class="logo">
-      <i class="fas fa-camera"></i>
-      <span>مصوري</span>
-    </div>
+    <div class="logo"><i class="fas fa-camera"></i><span>مصوري</span></div>
     <nav class="nav-links">
       <a href="#photographers">المصورون</a>
       <a href="#categories">الفئات</a>
       <a href="#how-it-works">كيف تعمل</a>
       <a href="#testimonials">آراء العملاء</a>
     </nav>
-    <button class="btn-join" onclick="openJoinModal()">
-      <i class="fas fa-user-plus"></i> انضم كمصور
-    </button>
+    <button class="btn-join" onclick="openJoinModal()"><i class="fas fa-user-plus"></i> انضم كمصور</button>
   </div>
 </header>
 
-<!-- البانر الرئيسي -->
 <section class="hero">
   <h1>ابحث عن مصورك المثالي</h1>
   <p>آلاف المصورين المحترفين في انتظارك • احجز الآن بكل ثقة</p>
-  
   <div class="search-box">
     <input type="text" placeholder="ابحث عن مصور أو نوع التصوير..." id="searchInput">
-    <button onclick="searchPhotographers()">
-      <i class="fas fa-search"></i> بحث
-    </button>
+    <button onclick="searchPhotographers()"><i class="fas fa-search"></i> بحث</button>
   </div>
 </section>
 
-<!-- الإحصائيات -->
 <div class="stats">
-  <div class="stat-card">
-    <i class="fas fa-camera"></i>
-    <h3 id="photographersCount">1,247</h3>
-    <p>مصور محترف</p>
-  </div>
-  <div class="stat-card">
-    <i class="fas fa-calendar-check"></i>
-    <h3 id="bookingsCount">8,543</h3>
-    <p>حجز ناجح</p>
-  </div>
-  <div class="stat-card">
-    <i class="fas fa-star"></i>
-    <h3>4.9</h3>
-    <p>تقييم العملاء</p>
-  </div>
-  <div class="stat-card">
-    <i class="fas fa-shield-alt"></i>
-    <h3>100%</h3>
-    <p>أمان ومصداقية</p>
-  </div>
+  <div class="stat-card"><i class="fas fa-camera"></i><h3 id="photographersCount">0</h3><p>مصور محترف</p></div>
+  <div class="stat-card"><i class="fas fa-calendar-check"></i><h3 id="bookingsCount">0</h3><p>حجز ناجح</p></div>
+  <div class="stat-card"><i class="fas fa-star"></i><h3>4.9</h3><p>تقييم العملاء</p></div>
+  <div class="stat-card"><i class="fas fa-shield-alt"></i><h3>100%</h3><p>أمان ومصداقية</p></div>
 </div>
 
-<!-- الفئات -->
 <section class="section" id="categories">
-  <div class="section-header">
-    <h2>فئات التصوير</h2>
-    <p>اختر نوع التصوير المناسب لمناسبتك</p>
-  </div>
-  
+  <div class="section-header"><h2>فئات التصوير</h2><p>اختر نوع التصوير المناسب لمناسبتك</p></div>
   <div class="categories">
-    <div class="category-card" onclick="filterByCategory('أفراح')">
-      <i class="fas fa-rings-wedding"></i>
-      <h3>أفراح</h3>
-      <p>523 مصور</p>
-    </div>
-    <div class="category-card" onclick="filterByCategory('مناسبات')">
-      <i class="fas fa-birthday-cake"></i>
-      <h3>مناسبات</h3>
-      <p>387 مصور</p>
-    </div>
-    <div class="category-card" onclick="filterByCategory('أعمال')">
-      <i class="fas fa-briefcase"></i>
-      <h3>أعمال</h3>
-      <p>295 مصور</p>
-    </div>
-    <div class="category-card" onclick="filterByCategory('موضة')">
-      <i class="fas fa-tshirt"></i>
-      <h3>موضة</h3>
-      <p>168 مصور</p>
-    </div>
-    <div class="category-card" onclick="filterByCategory('منتجات')">
-      <i class="fas fa-box"></i>
-      <h3>منتجات</h3>
-      <p>234 مصور</p>
-    </div>
-    <div class="category-card" onclick="filterByCategory('رياضة')">
-      <i class="fas fa-running"></i>
-      <h3>رياضة</h3>
-      <p>142 مصور</p>
-    </div>
+    <div class="category-card" onclick="filterByCategory('أفراح')"><i class="fas fa-heart"></i><h3>أفراح</h3><p>523 مصور</p></div>
+    <div class="category-card" onclick="filterByCategory('مناسبات')"><i class="fas fa-birthday-cake"></i><h3>مناسبات</h3><p>387 مصور</p></div>
+    <div class="category-card" onclick="filterByCategory('أعمال')"><i class="fas fa-briefcase"></i><h3>أعمال</h3><p>295 مصور</p></div>
+    <div class="category-card" onclick="filterByCategory('موضة')"><i class="fas fa-tshirt"></i><h3>موضة</h3><p>168 مصور</p></div>
+    <div class="category-card" onclick="filterByCategory('منتجات')"><i class="fas fa-box"></i><h3>منتجات</h3><p>234 مصور</p></div>
+    <div class="category-card" onclick="filterByCategory('رياضة')"><i class="fas fa-running"></i><h3>رياضة</h3><p>142 مصور</p></div>
   </div>
 </section>
 
-<!-- المصورون المميزون -->
 <section class="section" id="photographers">
-  <div class="section-header">
-    <h2>المصورون المميزون</h2>
-    <p>أفضل المصورين بناءً على التقييمات والخبرة</p>
-  </div>
-  
-  <div class="photographers-grid" id="photographersGrid">
-    <!-- سيتم ملؤها بالجافاسكريبت -->
-  </div>
+  <div class="section-header"><h2>المصورون المميزون</h2><p>أفضل المصورين بناءً على التقييمات والخبرة</p></div>
+  <div class="photographers-grid" id="photographersGrid"></div>
 </section>
 
-<!-- كيف تعمل -->
 <div class="how-it-works" id="how-it-works">
   <div class="section">
-    <div class="section-header">
-      <h2>كيف تعمل المنصة؟</h2>
-      <p>ثلاث خطوات بسيطة فقط للحصول على مصورك المثالي</p>
-    </div>
-    
+    <div class="section-header"><h2>كيف تعمل المنصة؟</h2><p>ثلاث خطوات بسيطة فقط</p></div>
     <div class="steps">
-      <div class="step">
-        <div class="step-number">1</div>
-        <h3>ابحث واختر</h3>
-        <p>تصفح مئات المصورين، شاهد أعمالهم واقرأ التقييمات لتختار الأنسب لك</p>
-      </div>
-      <div class="step">
-        <div class="step-number">2</div>
-        <h3>احجز وادفع</h3>
-        <p>احجز التاريخ المناسب وادفع بأمان عبر المنصة بدون أي مخاطر</p>
-      </div>
-      <div class="step">
-        <div class="step-number">3</div>
-        <h3>استلم صورك</h3>
-        <p>استمتع بتصوير احترافي واستلم صورك عالية الجودة في الموعد المحدد</p>
-      </div>
+      <div class="step"><div class="step-number">1</div><h3>ابحث واختر</h3><p>تصفح مئات المصورين وشاهد أعمالهم</p></div>
+      <div class="step"><div class="step-number">2</div><h3>احجز وادفع</h3><p>احجز التاريخ المناسب وادفع بأمان</p></div>
+      <div class="step"><div class="step-number">3</div><h3>استلم صورك</h3><p>استمتع بتصوير احترافي عالي الجودة</p></div>
     </div>
   </div>
 </div>
 
-<!-- انضم كمصور -->
 <div class="join-photographer">
   <h2>هل أنت مصور محترف؟</h2>
   <p>انضم إلى آلاف المصورين الذين يحققون دخلاً ثابتاً من خلال منصتنا</p>
-  
   <div class="join-benefits">
-    <div class="benefit">
-      <i class="fas fa-users"></i>
-      <h4>عملاء جدد</h4>
-      <p>احصل على عملاء محتملين يومياً</p>
-    </div>
-    <div class="benefit">
-      <i class="fas fa-money-bill-wave"></i>
-      <h4>دخل ثابت</h4>
-      <p>زد دخلك بنسبة 300%</p>
-    </div>
-    <div class="benefit">
-      <i class="fas fa-chart-line"></i>
-      <h4>نمو سريع</h4>
-      <p>بناء سمعة وعلامة تجارية قوية</p>
-    </div>
-    <div class="benefit">
-      <i class="fas fa-headset"></i>
-      <h4>دعم كامل</h4>
-      <p>فريقنا معك على مدار الساعة</p>
-    </div>
+    <div class="benefit"><i class="fas fa-users"></i><h4>عملاء جدد</h4><p>احصل على عملاء يومياً</p></div>
+    <div class="benefit"><i class="fas fa-money-bill-wave"></i><h4>دخل ثابت</h4><p>زد دخلك بنسبة 300%</p></div>
+    <div class="benefit"><i class="fas fa-chart-line"></i><h4>نمو سريع</h4><p>بناء سمعة قوية</p></div>
+    <div class="benefit"><i class="fas fa-headset"></i><h4>دعم كامل</h4><p>فريقنا معك دائماً</p></div>
   </div>
-  
-  <button class="btn-join-large" onclick="openJoinModal()">
-    <i class="fas fa-camera"></i> انضم الآن مجاناً
-  </button>
+  <button class="btn-join-large" onclick="openJoinModal()"><i class="fas fa-camera"></i> انضم الآن مجاناً</button>
 </div>
 
-<!-- الشهادات -->
 <section class="section" id="testimonials">
-  <div class="section-header">
-    <h2>ماذا يقول عملاؤنا</h2>
-    <p>آراء حقيقية من عملاء راضين عن خدماتنا</p>
-  </div>
-  
+  <div class="section-header"><h2>ماذا يقول عملاؤنا</h2><p>آراء حقيقية من عملاء راضين</p></div>
   <div class="testimonials">
     <div class="testimonial">
-      <div class="testimonial-header">
-        <div class="testimonial-avatar">أ</div>
-        <div>
-          <div class="testimonial-name">أمينة بن علي</div>
-          <div class="testimonial-role">عروس</div>
-        </div>
-      </div>
-      <div class="testimonial-rating">
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-      </div>
-      <p class="testimonial-text">
-        "وجدت المصور المثالي لعرسي من خلال المنصة. الأسعار واضحة والتقييمات ساعدتني في الاختيار. النتيجة كانت فوق التوقعات!"
-      </p>
+      <div class="testimonial-header"><div class="testimonial-avatar">أ</div><div><div class="testimonial-name">أمينة بن علي</div><div class="testimonial-role">عروس</div></div></div>
+      <div class="testimonial-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+      <p class="testimonial-text">"وجدت المصور المثالي لعرسي من خلال المنصة. النتيجة كانت فوق التوقعات!"</p>
     </div>
-    
     <div class="testimonial">
-      <div class="testimonial-header">
-        <div class="testimonial-avatar">م</div>
-        <div>
-          <div class="testimonial-name">محمد قاسمي</div>
-          <div class="testimonial-role">مصور محترف</div>
-        </div>
-      </div>
-      <div class="testimonial-rating">
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-      </div>
-      <p class="testimonial-text">
-        "بعد انضمامي للمنصة، زاد دخلي 4 أضعاف! العملاء يأتون لي مباشرة والدفع آمن ومضمون. أفضل قرار اتخذته في مسيرتي."
-      </p>
+      <div class="testimonial-header"><div class="testimonial-avatar">م</div><div><div class="testimonial-name">محمد قاسمي</div><div class="testimonial-role">مصور محترف</div></div></div>
+      <div class="testimonial-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+      <p class="testimonial-text">"بعد انضمامي للمنصة، زاد دخلي 4 أضعاف! أفضل قرار اتخذته."</p>
     </div>
-    
     <div class="testimonial">
-      <div class="testimonial-header">
-        <div class="testimonial-avatar">س</div>
-        <div>
-          <div class="testimonial-name">سارة مختاري</div>
-          <div class="testimonial-role">صاحبة متجر</div>
-        </div>
-      </div>
-      <div class="testimonial-rating">
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-      </div>
-      <p class="testimonial-text">
-        "أحتاج لتصوير منتجاتي شهرياً، والمنصة وفرت لي مصورين محترفين بأسعار معقولة. التعامل سهل والجودة ممتازة!"
-      </p>
+      <div class="testimonial-header"><div class="testimonial-avatar">س</div><div><div class="testimonial-name">سارة مختاري</div><div class="testimonial-role">صاحبة متجر</div></div></div>
+      <div class="testimonial-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+      <p class="testimonial-text">"مصورين محترفين بأسعار معقولة. التعامل سهل والجودة ممتازة!"</p>
     </div>
   </div>
 </section>
 
-<!-- الفوتر -->
 <footer class="footer">
   <div class="footer-content">
     <div class="footer-section">
       <h3><i class="fas fa-camera"></i> مصوري</h3>
-      <p>المنصة الأولى في الجزائر للربط بين المصورين والعملاء. نساعدك في إيجاد المصور المثالي لكل مناسباتك.</p>
+      <p>المنصة الأولى في الجزائر للربط بين المصورين والعملاء.</p>
       <div class="social-links">
         <a href="#"><i class="fab fa-facebook-f"></i></a>
         <a href="#"><i class="fab fa-instagram"></i></a>
         <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
       </div>
     </div>
-    
     <div class="footer-section">
       <h3>روابط سريعة</h3>
       <ul>
@@ -1075,7 +236,6 @@ body {
         <li><a href="#" onclick="openJoinModal()">انضم كمصور</a></li>
       </ul>
     </div>
-    
     <div class="footer-section">
       <h3>الدعم</h3>
       <ul>
@@ -1085,84 +245,50 @@ body {
         <li><a href="#">الشروط والأحكام</a></li>
       </ul>
     </div>
-    
     <div class="footer-section">
       <h3>تواصل معنا</h3>
       <ul>
-        <li><i class="fas fa-envelope"></i> info@mussawiri.dz</li>
-        <li><i class="fas fa-phone"></i> +213 555 123 456</li>
+        <li><i class="fas fa-envelope"></i> aymenmaadjoudj31@gmail.com</li>
+        <li><i class="fas fa-phone"></i> +213 771 680 205</li>
         <li><i class="fas fa-map-marker-alt"></i> الجزائر العاصمة</li>
       </ul>
     </div>
   </div>
-  
-  <div class="footer-bottom">
-    <p>&copy; 2024 مصوري. جميع الحقوق محفوظة.</p>
-  </div>
+  <div class="footer-bottom"><p>&copy; 2024 مصوري. جميع الحقوق محفوظة.</p></div>
 </footer>
 
 <!-- Modal الانضمام -->
 <div class="modal" id="joinModal">
   <div class="modal-content">
-    <span class="modal-close" onclick="closeJoinModal()">&times;</span>
+    <button class="modal-close" onclick="closeJoinModal()">&times;</button>
     <h2>انضم كمصور محترف</h2>
-    
     <form id="joinForm" onsubmit="submitJoinForm(event)">
-      <div class="form-group">
-        <label>الاسم الكامل *</label>
-        <input type="text" required placeholder="أدخل اسمك الكامل">
-      </div>
-      
-      <div class="form-group">
-        <label>رقم الهاتف *</label>
-        <input type="tel" required placeholder="0555 123 456">
-      </div>
-      
-      <div class="form-group">
-        <label>البريد الإلكتروني *</label>
-        <input type="email" required placeholder="email@example.com">
-      </div>
-      
+      <div class="form-group"><label>الاسم الكامل *</label><input type="text" id="joinName" required placeholder="أدخل اسمك الكامل"></div>
+      <div class="form-group"><label>رقم الهاتف *</label><input type="tel" id="joinPhone" required placeholder="0555 123 456"></div>
+      <div class="form-group"><label>البريد الإلكتروني *</label><input type="email" id="joinEmail" required placeholder="email@example.com"></div>
       <div class="form-group">
         <label>الولاية *</label>
-        <select required>
+        <select id="joinCity" required>
           <option value="">اختر الولاية</option>
-          <option value="algiers">الجزائر</option>
-          <option value="oran">وهران</option>
-          <option value="constantine">قسنطينة</option>
-          <option value="annaba">عنابة</option>
-          <option value="blida">البليدة</option>
-          <option value="setif">سطيف</option>
-          <option value="tlemcen">تلمسان</option>
+          <option value="algiers">الجزائر</option><option value="oran">وهران</option>
+          <option value="constantine">قسنطينة</option><option value="annaba">عنابة</option>
+          <option value="blida">البليدة</option><option value="setif">سطيف</option>
+          <option value="tlemcen">تلمسان</option><option value="batna">باتنة</option>
+          <option value="bejaia">بجاية</option><option value="other">أخرى</option>
         </select>
       </div>
-      
       <div class="form-group">
         <label>التخصص *</label>
-        <select required>
+        <select id="joinSpecialty" required>
           <option value="">اختر التخصص</option>
-          <option value="wedding">أفراح</option>
-          <option value="events">مناسبات</option>
-          <option value="business">أعمال</option>
-          <option value="fashion">موضة</option>
-          <option value="products">منتجات</option>
-          <option value="sports">رياضة</option>
+          <option value="أفراح">أفراح</option><option value="مناسبات">مناسبات</option>
+          <option value="أعمال">أعمال</option><option value="موضة">موضة</option>
+          <option value="منتجات">منتجات</option><option value="رياضة">رياضة</option>
         </select>
       </div>
-      
-      <div class="form-group">
-        <label>سنوات الخبرة *</label>
-        <input type="number" required min="0" placeholder="عدد السنوات">
-      </div>
-      
-      <div class="form-group">
-        <label>نبذة عنك</label>
-        <textarea rows="4" placeholder="اكتب نبذة مختصرة عن خبرتك وأسلوبك في التصوير..."></textarea>
-      </div>
-      
-      <button type="submit" class="btn-submit">
-        <i class="fas fa-check"></i> إرسال الطلب
-      </button>
+      <div class="form-group"><label>سنوات الخبرة *</label><input type="number" id="joinExperience" required min="0" placeholder="عدد السنوات"></div>
+      <div class="form-group"><label>نبذة عنك</label><textarea id="joinBio" rows="4" placeholder="اكتب نبذة مختصرة عن خبرتك..."></textarea></div>
+      <button type="submit" class="btn-submit"><i class="fas fa-check"></i> إرسال الطلب</button>
     </form>
   </div>
 </div>
@@ -1170,265 +296,213 @@ body {
 <!-- Modal الحجز -->
 <div class="modal" id="bookModal">
   <div class="modal-content">
-    <span class="modal-close" onclick="closeBookModal()">&times;</span>
+    <button class="modal-close" onclick="closeBookModal()">&times;</button>
     <h2>احجز الآن</h2>
-    
+    <p style="color:#666; margin-bottom:20px;">المصور: <strong id="selectedPhotographerName"></strong></p>
     <form id="bookForm" onsubmit="submitBooking(event)">
-      <div class="form-group">
-        <label>الاسم الكامل *</label>
-        <input type="text" required placeholder="أدخل اسمك">
-      </div>
-      
-      <div class="form-group">
-        <label>رقم الهاتف *</label>
-        <input type="tel" required placeholder="0555 123 456">
-      </div>
-      
+      <div class="form-group"><label>الاسم الكامل *</label><input type="text" id="bookName" required placeholder="أدخل اسمك"></div>
+      <div class="form-group"><label>رقم الهاتف *</label><input type="tel" id="bookPhone" required placeholder="0555 123 456"></div>
+      <div class="form-group"><label>البريد الإلكتروني</label><input type="email" id="bookEmail" placeholder="email@example.com"></div>
       <div class="form-group">
         <label>نوع المناسبة *</label>
-        <select required>
+        <select id="bookEventType" required>
           <option value="">اختر نوع المناسبة</option>
-          <option value="wedding">عرس</option>
-          <option value="birthday">عيد ميلاد</option>
-          <option value="business">مناسبة عمل</option>
-          <option value="graduation">تخرج</option>
-          <option value="other">أخرى</option>
+          <option value="عرس">عرس</option><option value="عيد ميلاد">عيد ميلاد</option>
+          <option value="مناسبة عمل">مناسبة عمل</option><option value="تخرج">تخرج</option>
+          <option value="تصوير منتجات">تصوير منتجات</option><option value="أخرى">أخرى</option>
         </select>
       </div>
-      
-      <div class="form-group">
-        <label>تاريخ المناسبة *</label>
-        <input type="date" required>
-      </div>
-      
-      <div class="form-group">
-        <label>الموقع *</label>
-        <input type="text" required placeholder="مكان المناسبة">
-      </div>
-      
-      <div class="form-group">
-        <label>تفاصيل إضافية</label>
-        <textarea rows="3" placeholder="أي ملاحظات أو متطلبات خاصة..."></textarea>
-      </div>
-      
-      <button type="submit" class="btn-submit">
-        <i class="fas fa-calendar-check"></i> تأكيد الحجز
-      </button>
+      <div class="form-group"><label>تاريخ المناسبة *</label><input type="date" id="bookDate" required></div>
+      <div class="form-group"><label>الموقع *</label><input type="text" id="bookLocation" required placeholder="مكان المناسبة"></div>
+      <div class="form-group"><label>تفاصيل إضافية</label><textarea id="bookNotes" rows="3" placeholder="أي ملاحظات..."></textarea></div>
+      <button type="submit" class="btn-submit"><i class="fas fa-calendar-check"></i> تأكيد الحجز</button>
     </form>
   </div>
 </div>
 
-<!-- Firebase -->
+<div class="toast" id="toast"></div>
+
+<!-- ✅ Firebase SDK واحد فقط - نظيف وصحيح -->
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-import { getDatabase, ref, push, set, onValue } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
+import { getDatabase, ref, push, get } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js";
 
+// ✅ Firebase Config كامل مع databaseURL
 const firebaseConfig = {
-  apiKey: "AIzaSyBSvvs9RByJY7-VZcHnYZUU2imI0ih2Zfg",
-  authDomain: "braibcachdz.firebaseapp.com",
-  databaseURL: "https://braibcachdz-default-rtdb.firebaseio.com",
-  projectId: "braibcachdz",
-  storageBucket: "braibcachdz.firebasestorage.app",
-  messagingSenderId: "161137862481",
-  appId: "1:161137862481:web:8ebd3ed55438c7f6a6d570"
+  apiKey: "AIzaSyDVeVAJApwb_MvRvd0ImtnwSEJdsb5vKqI",
+  authDomain: "mussawiri.firebaseapp.com",
+  databaseURL: "https://mussawiri-default-rtdb.firebaseio.com",
+  projectId: "mussawiri",
+  storageBucket: "mussawiri.firebasestorage.app",
+  messagingSenderId: "780523700949",
+  appId: "1:780523700949:web:51b068edf2bc317fa8185c",
+  measurementId: "G-XZ3VB5PSTR"
 };
 
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
+const analytics = getAnalytics(app);
+console.log("✅ Firebase متصل بنجاح!");
 
-// بيانات المصورين التجريبية
+// بيانات المصورين
 const samplePhotographers = [
-  {
-    name: "أحمد بن سالم",
-    category: "أفراح",
-    rating: 4.9,
-    reviews: 127,
-    location: "الجزائر العاصمة",
-    price: 50000,
-    verified: true
-  },
-  {
-    name: "فاطمة زهراء",
-    category: "مناسبات",
-    rating: 4.8,
-    reviews: 98,
-    location: "وهران",
-    price: 35000,
-    verified: true
-  },
-  {
-    name: "كريم مرابط",
-    category: "أعمال",
-    rating: 5.0,
-    reviews: 156,
-    location: "قسنطينة",
-    price: 45000,
-    verified: true
-  },
-  {
-    name: "ليلى بوشامة",
-    category: "موضة",
-    rating: 4.7,
-    reviews: 89,
-    location: "البليدة",
-    price: 40000,
-    verified: true
-  },
-  {
-    name: "يوسف عماري",
-    category: "منتجات",
-    rating: 4.9,
-    reviews: 134,
-    location: "سطيف",
-    price: 30000,
-    verified: true
-  },
-  {
-    name: "سمية حداد",
-    category: "رياضة",
-    rating: 4.8,
-    reviews: 76,
-    location: "عنابة",
-    price: 38000,
-    verified: true
-  }
+  { name: "أحمد بن سالم", category: "أفراح", rating: 4.9, reviews: 127, location: "الجزائر العاصمة", price: 50000 },
+  { name: "فاطمة زهراء", category: "مناسبات", rating: 4.8, reviews: 98, location: "وهران", price: 35000 },
+  { name: "كريم مرابط", category: "أعمال", rating: 5.0, reviews: 156, location: "قسنطينة", price: 45000 },
+  { name: "ليلى بوشامة", category: "موضة", rating: 4.7, reviews: 89, location: "البليدة", price: 40000 },
+  { name: "يوسف عماري", category: "منتجات", rating: 4.9, reviews: 134, location: "سطيف", price: 30000 },
+  { name: "سمية حداد", category: "رياضة", rating: 4.8, reviews: 76, location: "عنابة", price: 38000 }
 ];
 
-// عرض المصورين
+let allPhotographers = [...samplePhotographers];
+let selectedPhotographer = '';
+
 function displayPhotographers(photographers) {
   const grid = document.getElementById('photographersGrid');
   grid.innerHTML = '';
-  
-  photographers.forEach((photographer, index) => {
+  if (photographers.length === 0) {
+    grid.innerHTML = '<p style="text-align:center;color:#666;grid-column:1/-1;padding:40px;">لا توجد نتائج</p>';
+    return;
+  }
+  photographers.forEach(p => {
     const card = document.createElement('div');
     card.className = 'photographer-card';
-    
-    const initial = photographer.name.charAt(0);
-    const stars = '★'.repeat(Math.floor(photographer.rating)) + '☆'.repeat(5 - Math.floor(photographer.rating));
-    
+    const stars = '★'.repeat(Math.floor(p.rating)) + '☆'.repeat(5 - Math.floor(p.rating));
     card.innerHTML = `
       <div class="photographer-image">
         <div class="photographer-badge">✓ موثق</div>
-        <div style="font-size: 80px; font-weight: 900;">${initial}</div>
+        <div style="font-size:80px;font-weight:900;">${p.name.charAt(0)}</div>
       </div>
       <div class="photographer-info">
-        <div class="photographer-name">${photographer.name}</div>
-        <div class="photographer-category"><i class="fas fa-camera"></i> ${photographer.category}</div>
+        <div class="photographer-name">${p.name}</div>
+        <div class="photographer-category"><i class="fas fa-camera"></i> ${p.category}</div>
         <div class="photographer-rating">
           <span class="stars">${stars}</span>
-          <span class="rating-count">${photographer.rating} (${photographer.reviews} تقييم)</span>
+          <span class="rating-count">${p.rating} (${p.reviews} تقييم)</span>
         </div>
-        <div class="photographer-location">
-          <i class="fas fa-map-marker-alt"></i>
-          ${photographer.location}
-        </div>
-        <div class="photographer-price">
-          ${photographer.price.toLocaleString()} دج
-          <span>/ جلسة</span>
-        </div>
-        <button class="btn-book" onclick="openBookModal('${photographer.name}')">
+        <div class="photographer-location"><i class="fas fa-map-marker-alt"></i> ${p.location}</div>
+        <div class="photographer-price">${p.price.toLocaleString()} دج <span>/ جلسة</span></div>
+        <button class="btn-book" onclick="window.openBookModal('${p.name}')">
           <i class="fas fa-calendar-check"></i> احجز الآن
         </button>
-      </div>
-    `;
-    
+      </div>`;
     grid.appendChild(card);
   });
 }
 
-// عرض المصورين عند التحميل
-displayPhotographers(samplePhotographers);
+function showToast(message) {
+  const toast = document.getElementById('toast');
+  toast.innerText = message;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 4000);
+}
 
-// البحث
+function updateStats() {
+  get(ref(database, 'photographer_applications')).then(snapshot => {
+    document.getElementById('photographersCount').innerText = snapshot.size || 0;
+  }).catch(() => {});
+
+  get(ref(database, 'bookings')).then(snapshot => {
+    document.getElementById('bookingsCount').innerText = snapshot.size || 0;
+  }).catch(() => {});
+}
+
 window.searchPhotographers = function() {
   const query = document.getElementById('searchInput').value.toLowerCase();
-  const filtered = samplePhotographers.filter(p => 
+  displayPhotographers(allPhotographers.filter(p =>
     p.name.toLowerCase().includes(query) ||
     p.category.toLowerCase().includes(query) ||
     p.location.toLowerCase().includes(query)
-  );
-  displayPhotographers(filtered);
-}
+  ));
+};
 
-// فلترة حسب الفئة
 window.filterByCategory = function(category) {
-  const filtered = samplePhotographers.filter(p => p.category === category);
-  displayPhotographers(filtered);
+  displayPhotographers(allPhotographers.filter(p => p.category === category));
   document.getElementById('photographers').scrollIntoView({ behavior: 'smooth' });
-}
+};
 
-// Modal الانضمام
 window.openJoinModal = function() {
   document.getElementById('joinModal').classList.add('active');
-}
+};
 
 window.closeJoinModal = function() {
   document.getElementById('joinModal').classList.remove('active');
-}
+};
 
 window.submitJoinForm = function(event) {
   event.preventDefault();
-  
-  // حفظ في Firebase
   const formData = {
+    name: document.getElementById('joinName').value,
+    phone: document.getElementById('joinPhone').value,
+    email: document.getElementById('joinEmail').value,
+    city: document.getElementById('joinCity').value,
+    specialty: document.getElementById('joinSpecialty').value,
+    experience: document.getElementById('joinExperience').value,
+    bio: document.getElementById('joinBio').value,
     timestamp: Date.now(),
     status: 'pending'
   };
-  
-  push(ref(database, 'photographer_applications'), formData);
-  
-  alert('✅ تم إرسال طلبك بنجاح! سنتواصل معك خلال 24 ساعة.');
-  closeJoinModal();
-  event.target.reset();
-}
+  push(ref(database, 'photographer_applications'), formData)
+    .then(() => {
+      showToast('✅ تم إرسال طلبك بنجاح! سنتواصل معك خلال 24 ساعة.');
+      closeJoinModal();
+      document.getElementById('joinForm').reset();
+      updateStats();
+    })
+    .catch(error => {
+      console.error('خطأ:', error);
+      alert('❌ حدث خطأ! تأكد من اتصال الإنترنت وحاول مرة أخرى.');
+    });
+};
 
-// Modal الحجز
 window.openBookModal = function(photographerName) {
+  selectedPhotographer = photographerName;
+  document.getElementById('selectedPhotographerName').innerText = photographerName;
   document.getElementById('bookModal').classList.add('active');
-}
+};
 
 window.closeBookModal = function() {
   document.getElementById('bookModal').classList.remove('active');
-}
+};
 
 window.submitBooking = function(event) {
   event.preventDefault();
-  
   const formData = {
+    photographerName: selectedPhotographer,
+    clientName: document.getElementById('bookName').value,
+    phone: document.getElementById('bookPhone').value,
+    email: document.getElementById('bookEmail').value,
+    eventType: document.getElementById('bookEventType').value,
+    date: document.getElementById('bookDate').value,
+    location: document.getElementById('bookLocation').value,
+    notes: document.getElementById('bookNotes').value,
     timestamp: Date.now(),
     status: 'pending'
   };
-  
-  push(ref(database, 'bookings'), formData);
-  
-  alert('✅ تم إرسال طلب الحجز! سيتواصل معك المصور قريباً.');
-  closeBookModal();
-  event.target.reset();
-}
+  push(ref(database, 'bookings'), formData)
+    .then(() => {
+      showToast('✅ تم إرسال طلب الحجز! سيتواصل معك المصور قريباً.');
+      closeBookModal();
+      document.getElementById('bookForm').reset();
+      updateStats();
+    })
+    .catch(error => {
+      console.error('خطأ:', error);
+      alert('❌ حدث خطأ! تأكد من اتصال الإنترنت وحاول مرة أخرى.');
+    });
+};
 
-// تحديث الإحصائيات
-function updateStats() {
-  onValue(ref(database, 'photographer_applications'), (snapshot) => {
-    const count = snapshot.size || 1247;
-    document.getElementById('photographersCount').innerText = count.toLocaleString();
-  });
-  
-  onValue(ref(database, 'bookings'), (snapshot) => {
-    const count = snapshot.size || 8543;
-    document.getElementById('bookingsCount').innerText = count.toLocaleString();
-  });
-}
-
-updateStats();
-
-// إغلاق Modal عند النقر خارجها
 document.querySelectorAll('.modal').forEach(modal => {
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.classList.remove('active');
-    }
+  modal.addEventListener('click', e => {
+    if (e.target === modal) modal.classList.remove('active');
   });
 });
+
+displayPhotographers(allPhotographers);
+updateStats();
+setInterval(updateStats, 60000);
+console.log("✅ المنصة جاهزة!");
 </script>
 
 </body>
